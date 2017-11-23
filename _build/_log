@@ -1,0 +1,14 @@
+### Starting build.
+# Target: src/core/main.ml.depends, tags: { package(cil), package(ocamlgraph), package(yojson), extension:ml, file:src/core/main.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package ocamlgraph -package cil -package yojson -modules src/core/main.ml > src/core/main.ml.depends
+# Target: src/core/main.mli.depends, tags: { package(cil), package(ocamlgraph), package(yojson), extension:mli, file:src/core/main.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package ocamlgraph -package cil -package yojson -modules src/core/main.mli > src/core/main.mli.depends
+# Target: src/core/main.cmi, tags: { package(cil), package(ocamlgraph), package(yojson), byte, compile, extension:mli, file:src/core/main.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package ocamlgraph -package cil -package yojson -I src/core -o src/core/main.cmi src/core/main.mli
+# Target: src/core/main.cmx, tags: { package(cil), package(ocamlgraph), package(yojson), compile, extension:cmx, extension:ml, file:src/core/main.cmx, file:src/core/main.ml, implem, native, ocaml, quiet, traverse }
+ocamlfind ocamlopt -c -package ocamlgraph -package cil -package yojson -I src/core -o src/core/main.cmx src/core/main.ml
++ ocamlfind ocamlopt -c -package ocamlgraph -package cil -package yojson -I src/core -o src/core/main.cmx src/core/main.ml
+File "src/core/main.ml", line 13, characters 5-11:
+Error: Unbound module Global
+Command exited with code 2.
+# Compilation unsuccessful.
